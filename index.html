@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurnTable</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: #debc8d;
+        }
+        #turntable {
+            width: 500px;
+            height: 500px;
+            background-color: #d5d5d5;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left:350px;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes turntable-spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        #turntable-lp {
+            width: 470px;
+            height: 470px;
+            background-color: #303030;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: turntable-spin 5s linear infinite;
+            animation-play-state: paused;
+        }
+        #needlehandler {
+            width: 50px;
+            height: 50px;
+            background-color: #dbdbdb;
+            border-radius: 50%;
+            position: absolute;
+            top: 100px;
+            left: 600px;
+            transform: translate(-50%, -50%);
+        }
+        #needlebot {
+            width: 40px;
+            height: 40px;
+            background-color: #5f5f5f;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #neddle{
+            width: 8px;
+            height: 400px;
+            background-color: #5f5f5f;
+            position: absolute;
+            top: 300px;
+            left: 600px;
+            transform-origin: top;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            transition: all 2s ease-in-out;
+        }
+        .turntable-lp-pic {
+            width: 200px;
+            height: 200px;
+            background-color: #dbdbdb;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #bb2f2f;
+        }
+        #playbtn {
+            width: 50px;
+            height: 50px;
+            background-color: #d14545;
+            border-radius: 50%;
+            position: absolute;
+            top: 600px;
+            left: 650px;
+            transform: translate(-50%, -50%);
+            box-shadow: 3px 3px 5px #d14545ba;
+        }
+    </style>
+
+    <div id="turntable">
+        <div id="turntable-lp">
+            <div class="turntable-lp-pic">
+                Music
+            </div>
+        </div>
+    </div>
+    <div id="needlehandler">
+        <div id="needlebot"></div>
+    </div>
+    <div id="neddle">
+    </div>
+    <div id="playbtn"></div>    
+</body>
+<script>
+    const playbtn = document.querySelector('#playbtn');
+    const turntable = document.querySelector('#turntable-lp');
+    const neddle = document.querySelector('#neddle');
+    //make turntable spin when playbtn is clicked
+    playbtn.addEventListener('click', () => {
+        //make turntable spin until the playbtn is clicked again
+        if (turntable.style.animationPlayState == 'paused') {
+            turntable.style.animationPlayState = 'running';
+        } else {
+            turntable.style.animationPlayState = 'paused';
+        }
+        //rotate needle 30deg when playbtn is clicked and -5 when it is clicked again
+        if (neddle.style.transform == 'translate(-50%, -50%) rotate(-5deg)') {
+            neddle.style.transform = 'translate(-50%, -50%) rotate(13deg)';
+        } else {
+            neddle.style.transform = 'translate(-50%, -50%) rotate(-5deg)';
+        }
+    });
+
+</script>
+</html>
