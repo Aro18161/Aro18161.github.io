@@ -8,6 +8,7 @@
 </head>
 <body>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Zen+Kaku+Gothic+New:wght@700&display=swap');
         body{
             background-color: #debc8d;
         }
@@ -100,6 +101,113 @@
             transform: translate(-50%, -50%);
             box-shadow: 3px 3px 5px #d14545ba;
         }
+        #music_box{
+            width: 500px;
+            height: 600px;
+            background-color: #ffffff5a;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 1100px;
+            transform: translate(-50%, -50%);
+        }
+        #music_cover{
+            width: 250px;
+            height: 250px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #music_title{
+            width: 250px;
+            height: 50px;
+            border-radius: 10px;
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-weight: bold;
+            color: #9b9b9b;
+        }
+        #artist{
+            width: 250px;
+            height: 50px;
+            border-radius: 10px;
+            position: absolute;
+            top: 56%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-weight: bold;
+            color: #9b9b9b;
+        }
+        #music_playbtn{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+        #music_next{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 65%;
+            left: 63%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+        #music_prev{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 65%;
+            left: 37%;
+            transform-origin: center;
+            transform: rotate(180deg) translate(50%, 50%);
+            z-index: 100;
+        }
+        #music_loading_line{
+            width: 250px;
+            height: 2px;
+            background-color: #9b9b9b;
+            border-radius: 10px;
+            position: absolute;
+            top: 73%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes music-dot-move {
+            0% {
+                left: 0%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        #music_dot{
+            width: 10px;
+            height: 10px;
+            background-color: #9b9b9b;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+            animation: music-dot-move 180s linear infinite;
+        }
     </style>
 
     <div id="turntable">
@@ -115,6 +223,18 @@
     <div id="neddle">
     </div>
     <div id="playbtn"></div>    
+
+    <div id="music_box">
+        <img id="music_cover" src="https://i.namu.wiki/i/JFC21IQnAyjCurHBSYgiIjc8rkCPtWranLmNN7Md8nClfrhd3bU7gv6UFSjayn3LGof-PL9faUYqqBC4_dsrag.webp" alt=""></img>
+        <div id="music_title">夜に駆ける</div>
+        <div id="artist">YOASOBI</div>
+        <img id="music_playbtn" src="https://cdn-icons-png.flaticon.com/512/3885/3885585.png" alt="">
+        <img id="music_next" src="https://cdn-icons-png.flaticon.com/512/3318/3318722.png" alt="">
+        <img id="music_prev" src="https://cdn-icons-png.flaticon.com/512/3318/3318722.png" alt="">
+        <div id="music_loading_line">
+            <div id="music_dot"></div>
+        </div>
+    </div>
 </body>
 <script>
     const playbtn = document.querySelector('#playbtn');
