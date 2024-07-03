@@ -19,7 +19,7 @@ title: Dev.log by Aro # the main title
 tagline: 관악에 서식하는 개발자 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-관악에 서식하는 개발자
+  관악에 서식하는 개발자
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
