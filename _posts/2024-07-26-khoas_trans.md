@@ -8,7 +8,7 @@ tags:
 		KHAOS,
 		통신,
 		LoRA,
-		smt32
+		stm32
 
     ]
 ---
